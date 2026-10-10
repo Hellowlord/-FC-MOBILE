@@ -1,0 +1,11 @@
+{
+  "generatedBy": "engine/tools/golden-vectors.ts",
+  "purpose": "Cross-language parity fixtures. The Kotlin :core module must reproduce every number in these files. Regenerate with `npm run vectors` after any change to core physics, math or locomotion.",
+  "simHz": 60,
+  "tolerance": 1e-9,
+  "notes": [
+    "All values are produced by the deterministic core, which avoids libm entirely.",
+    "Tolerance 1e-9 absorbs JSON decimal rounding, not platform drift: a correct port matches to ~1e-15.",
+    "If the Kotlin side fails here, the port is wrong. Do not loosen the tolerance."
+  ]
+}

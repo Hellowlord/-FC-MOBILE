@@ -1,0 +1,17 @@
+{
+  "name": "@fcmobile/engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Deterministic, engine-agnostic football match simulation core for FC MOBILE",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test dist/test/",
+    "sim": "tsc -p tsconfig.json && node dist/tools/headless-match.js",
+    "vectors": "tsc -p tsconfig.json && node dist/tools/golden-vectors.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "@types/node": "^22.7.0"
+  }
+}

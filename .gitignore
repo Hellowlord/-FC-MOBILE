@@ -1,0 +1,22 @@
+# Build output
+engine/dist/
+android/**/build/
+android/.gradle/
+android/local.properties
+
+# Dependencies
+node_modules/
+engine/package-lock.json.bak
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.DS_Store
+
+# Captured/generated
+*.hprof
+captures/
+
+# The toolchain used to verify the engine locally is not part of the project.
+.toolchain/

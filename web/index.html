@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>FC MOBILE — match engine preview</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0d1512;
+        --panel: #16211c;
+        --line: #24382f;
+        --text: #e7f0ea;
+        --muted: #8aa79a;
+        --accent: #51cf66;
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0; height: 100%; background: var(--bg); color: var(--text);
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        overflow: hidden;
+      }
+      #app { display: flex; flex-direction: column; height: 100%; }
+      header {
+        display: flex; align-items: center; gap: 18px; padding: 10px 16px;
+        background: var(--panel); border-bottom: 1px solid var(--line);
+      }
+      #score { font-weight: 700; font-size: 18px; letter-spacing: 0.5px; }
+      #clock { font-variant-numeric: tabular-nums; color: var(--accent); font-weight: 600; }
+      #stats { color: var(--muted); font-size: 12px; margin-left: auto; font-variant-numeric: tabular-nums; }
+      main { position: relative; flex: 1; min-height: 0; }
+      #pitch { width: 100%; height: 100%; display: block; }
+      .meters { position: absolute; left: 12px; bottom: 12px; width: 190px; font-size: 11px; }
+      .meter { margin-bottom: 6px; }
+      .meter span { color: var(--muted); display: block; margin-bottom: 2px; }
+      .track { height: 7px; background: rgba(0,0,0,0.45); border-radius: 4px; overflow: hidden; }
+      #staminaBar { height: 100%; width: 100%; background: var(--accent); transition: width 0.1s linear; }
+      #powerBar { height: 100%; width: 0%; background: #ffd43b; transition: width 0.05s linear; }
+      #feed {
+        position: absolute; right: 12px; top: 12px; width: 210px;
+        font-size: 12px; text-align: right;
+      }
+      .feed-item {
+        background: rgba(22, 33, 28, 0.85); border: 1px solid var(--line);
+        border-radius: 6px; padding: 4px 8px; margin-bottom: 4px; color: var(--text);
+      }
+      .feed-goal { color: #ffd43b; font-weight: 700; border-color: #ffd43b; }
+      .feed-save { color: #74c0fc; }
+      .feed-post { color: #ffa94d; }
+      footer {
+        padding: 8px 16px; background: var(--panel); border-top: 1px solid var(--line);
+        color: var(--muted); font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <div id="score">—</div>
+        <div id="clock">00:00</div>
+        <div id="stats"></div>
+      </header>
+      <main>
+        <canvas id="pitch"></canvas>
+        <div class="meters">
+          <div class="meter"><span>shot power</span><div class="track"><div id="powerBar"></div></div></div>
+          <div class="meter"><span>stamina</span><div class="track"><div id="staminaBar"></div></div></div>
+        </div>
+        <div id="feed"></div>
+      </main>
+      <footer><span id="hint">loading…</span></footer>
+    </div>
+    <script type="module" src="/engine/dist/src/preview/main.js"></script>
+  </body>
+</html>
